@@ -1,0 +1,117 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "bashdb",
+      "request": "launch",
+      "name": "Bash-Debug (simplest configuration)",
+      "program": "${file}"
+    },
+    {
+      "name": "pack --extension",
+      "type": "go",
+      "request": "launch",
+      "mode": "auto",
+      "program": "${workspaceFolder}",
+      "args": [
+        "pack",
+        "--extension",
+        "../ubi-nodejs-extension/extension.toml",
+        "--output",
+        "../ubi-nodejs-extension/build/extension2.tgz",
+        "--version",
+        "\"1.2.3\"",
+        "--offline"
+      ]
+    },
+    {
+      "name": "pack --buildpack",
+      "type": "go",
+      "request": "launch",
+      "mode": "auto",
+      "program": "${workspaceFolder}",
+      "args": [
+        "pack",
+        "--buildpack",
+        "../npm-install/buildpack.toml",
+        "--output",
+        "../npm-install/build2/buildpack.tgz",
+        "--version",
+        "\"1.2.3\""
+      ]
+    },
+    {
+      "name": "pack --buildpack --stack",
+      "type": "go",
+      "request": "launch",
+      "mode": "auto",
+      "program": "${workspaceFolder}",
+      "args": [
+        "pack",
+        "--buildpack",
+        "../node-engine/buildpack.toml",
+        "--output",
+        "../node-engine/build/extension2.tgz",
+        "--version",
+        "\"1.2.3\"",
+        "--stack",
+        "io.buildpacks.stacks.bionic"
+      ]
+    },
+    {
+      "name": "summarize buildpack",
+      "type": "go",
+      "request": "launch",
+      "mode": "auto",
+      "program": "${workspaceFolder}",
+      "args": [
+        "summarize",
+        "--buildpack",
+        "./buildpacknodejsbuild/buildpackage.cnb"
+      ]
+    },
+    {
+      "name": "summarize extension",
+      "type": "go",
+      "request": "launch",
+      "mode": "auto",
+      "program": "${workspaceFolder}",
+      "args": [
+        "summarize",
+        "--extension",
+        "./extensionbuild/buildpackage.cnb",
+        "--format",
+        "json"
+      ]
+    },
+    {
+      "name": "update-builder",
+      "type": "go",
+      "request": "launch",
+      "mode": "auto",
+      "program": "${workspaceFolder}",
+      "args": [
+        "update-builder",
+        "--builder-file",
+        "${workspaceFolder}/../ubi-9-builder/builder-buildpackless.toml"
+      ]
+    },
+    {
+      "name": "update-dependencies",
+      "type": "go",
+      "request": "launch",
+      "mode": "auto",
+      "program": "${workspaceFolder}",
+      "args": [
+        "update-dependencies",
+        "--buildpack-file",
+        "${workspaceFolder}/../node-engine/buildpack.toml",
+        "--metadata-file",
+        "${workspaceFolder}/../node-engine/dependency/retrieval/metadata.json"
+      ]
+    }
+  ]
+}
