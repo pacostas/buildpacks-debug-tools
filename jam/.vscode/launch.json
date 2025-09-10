@@ -36,9 +36,9 @@
       "args": [
         "pack",
         "--buildpack",
-        "../npm-install/buildpack.toml",
+        "../node-engine/buildpack.toml",
         "--output",
-        "../npm-install/build2/buildpack.tgz",
+        "../node-engine/build2/buildpack.tgz",
         "--version",
         "\"1.2.3\""
       ]
@@ -110,7 +110,7 @@
         "--buildpack-file",
         "${workspaceFolder}/../node-engine/buildpack.toml",
         "--metadata-file",
-        "${workspaceFolder}/../node-engine/dependency/retrieval/metadata.json"
+        "${workspaceFolder}/../node-engine/metadata.json"
       ]
     }
   ]

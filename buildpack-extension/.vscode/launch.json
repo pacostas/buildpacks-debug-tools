@@ -11,23 +11,38 @@
       "program": "${file}"
     },
     {
+      "name": "package.sh",
       "type": "bashdb",
       "request": "launch",
-      "name": "package.sh",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/scripts/package.sh",
       "args": ["--version", "0.0.2"]
+    },
+    {
+      "name": "unit",
+      "type": "go",
+      "request": "launch",
+      "mode": "test",
+      "program": "${workspaceFolder}",
+      "env": {
+        "GOOS": "linux",
+        "CGO_ENABLED": "0",
+        "PATH": "${env:PATH}:${workspaceFolder}/.bin"
+      },
+      "args": [
+
+      ]
     },
     {
       "name": "integration",
       "type": "go",
       "request": "launch",
       "mode": "test",
-      "program": "${fileDirname}/../integration",
+      "program": "${workspaceFolder}/integration",
       "env": {
         "GOOS": "linux",
         "CGO_ENABLED": "0",
-        "PATH": "${env:PATH}:${fileDirname}/../.bin"
+        "PATH": "${env:PATH}:${workspaceFolder}/.bin"
       },
       "args": [
         "count",
@@ -58,6 +73,6 @@
         "--output",
         "${workspaceFolder}/metadata.json"
       ]
-    },
+    }
   ]
 }
