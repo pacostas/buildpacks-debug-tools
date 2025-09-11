@@ -29,9 +29,7 @@
         "CGO_ENABLED": "0",
         "PATH": "${env:PATH}:${workspaceFolder}/.bin"
       },
-      "args": [
-
-      ]
+      "args": []
     },
     {
       "name": "integration",

@@ -10,6 +10,14 @@
       "name": "Bash-Debug (simplest configuration)",
       "program": "${file}"
     },
+
+    {
+      "name": "unit tests",
+      "type": "go",
+      "request": "launch",
+      "mode": "test",
+      "program": "${workspaceFolder}/internal"
+    },
     {
       "name": "pack --extension",
       "type": "go",
@@ -22,6 +30,23 @@
         "../ubi-nodejs-extension/extension.toml",
         "--output",
         "../ubi-nodejs-extension/build/extension2.tgz",
+        "--version",
+        "\"1.2.3\"",
+        "--offline"
+      ]
+    },
+    {
+      "name": "pack --buildpack --offline",
+      "type": "go",
+      "request": "launch",
+      "mode": "auto",
+      "program": "${workspaceFolder}",
+      "args": [
+        "pack",
+        "--buildpack",
+        "../node-engine/buildpack.toml",
+        "--output",
+        "../node-engine/build-offline/buildpack.tgz",
         "--version",
         "\"1.2.3\"",
         "--offline"
@@ -111,6 +136,20 @@
         "${workspaceFolder}/../node-engine/buildpack.toml",
         "--metadata-file",
         "${workspaceFolder}/../node-engine/metadata.json"
+      ]
+    },
+    {
+      "name": "update-buildpack",
+      "type": "go",
+      "request": "launch",
+      "mode": "auto",
+      "program": "${workspaceFolder}",
+      "args": [
+        "update-buildpack",
+        "--buildpack-file",
+        "${workspaceFolder}/../python/buildpack.toml",
+        "--package-file",
+        "${workspaceFolder}/../python/package.toml",
       ]
     }
   ]
