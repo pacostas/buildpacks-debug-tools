@@ -9,13 +9,35 @@
       "type": "go",
       "request": "launch",
       "mode": "auto",
-      "program": "${fileDirname}/../actions/stack/get-usns/entrypoint",
+      "program": "${workspaceFolder}/actions/stack/get-usns/entrypoint",
       "env": {
         "GOOS": "linux",
         "CGO_ENABLED": "0",
         "PATH": "${env:PATH}"
       },
-      "args": ["--distro", "jammy"]
+      "args": [
+        "--last-usns-filepath",
+        "${workspaceFolder}/previous_patched-usns_noble.json",
+        "--packages-filepath",
+        "${workspaceFolder}/packages_noble_0.0.30.json",
+        "--distro",
+        "noble",
+        "--output",
+        "${workspaceFolder}/patched-usns_noble.json"
+      ]
+    },
+    {
+      "name": "unit",
+      "type": "go",
+      "request": "launch",
+      "mode": "test",
+      "program": "${workspaceFolder}/actions/stack/get-usns/entrypoint",
+      "env": {
+        "GOOS": "linux",
+        "CGO_ENABLED": "0",
+        "PATH": "${env:PATH}:${workspaceFolder}/.bin"
+      },
+      "args": []
     }
   ]
 }
